@@ -1,7 +1,10 @@
-import dotenv from 'dotenv';
-import mongoose from 'mongoose';
+const dotenv =  require('dotenv');
+const mongoose =  require('mongoose');
+// import bluebird from 'bluebird';
 
-dotenv.config({ path: __dirname + '/../../.env' });
+dotenv.config({ path: __dirname + '/../.env' });
+
+// mongoose.Promise = bluebird;
 
 mongoose.connect(`${process.env.DB_CONNECTION}`, {
     keepAlive: true,
@@ -20,4 +23,4 @@ db.once('open', function() {
 
 mongoose.Promise = global.Promise;
 
-export default module.exports = mongoose;
+module.exports = mongoose;
